@@ -3,7 +3,7 @@ import PageTitle from "../components/PageTitle";
 const CreateNotes = () => {
   return (
     <section>
-      <PageTitle title={"Create Notes"} />
+      <PageTitle title={"Lisää muistiinpanoja"} />
     </section>
   );
 };

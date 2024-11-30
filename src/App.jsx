@@ -10,9 +10,7 @@ function App() {
   return (
     <section>
       <header>
-        <div>
-          <Link to={"/"}>NoteApp</Link>
-        </div>
+        <Link to={"/"}>NotesApp</Link>
         <Nav />
       </header>
       <main>

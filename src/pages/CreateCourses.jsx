@@ -3,7 +3,7 @@ import PageTitle from "../components/PageTitle";
 const CreateCourses = () => {
   return (
     <section>
-      <PageTitle title={"Create Course"} />
+      <PageTitle title={"Kurssit"} />
     </section>
   );
 };

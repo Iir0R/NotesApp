@@ -3,7 +3,7 @@ import PageTitle from "../components/PageTitle";
 const Home = () => {
   return (
     <section>
-      <PageTitle title={"Home"} />
+      <PageTitle title={"NotesApp - Kaikkien muistiinpano-appien äiti"} />
     </section>
   );
 };

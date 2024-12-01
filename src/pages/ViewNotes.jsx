@@ -18,12 +18,20 @@ const ViewNotes = () => {
 
   let listNotes;
   if (current === "kaikki") {
-    listNotes = notes.map((note) => <ListItem key={note.id} note={note} />);
+    if (notes.length < 1) {
+      listNotes = <p>Ei muistiinpanoja!</p>;
+    } else {
+      listNotes = notes.map((note) => <ListItem key={note.id} note={note} />);
+    }
   } else {
     const filteredNotes = notes.filter((note) => note.course.name === current);
-    listNotes = filteredNotes.map((note) => (
-      <ListItem key={note.id} note={note} />
-    ));
+    if (filteredNotes.length < 1) {
+      listNotes = <p>Ei muistiinpanoja!</p>;
+    } else {
+      listNotes = filteredNotes.map((note) => (
+        <ListItem key={note.id} note={note} />
+      ));
+    }
   }
 
   return (

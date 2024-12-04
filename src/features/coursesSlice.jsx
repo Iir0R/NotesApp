@@ -3,7 +3,24 @@ import { createSlice } from "@reduxjs/toolkit";
 const COURSES_URL = "";
 
 const initialState = {
-  courses: [],
+  courses: [
+    {
+      id: 0,
+      name: "versionhallinta",
+    },
+    {
+      id: 1,
+      name: "java",
+    },
+    {
+      id: 2,
+      name: "ruotsi",
+    },
+    {
+      id: 3,
+      name: "ohjelmointi 1",
+    },
+  ],
   status: "idle",
   error: null,
 };

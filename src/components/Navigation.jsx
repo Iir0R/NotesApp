@@ -1,21 +1,13 @@
-import { Link } from "react-router-dom";
+import NavigationLink from "./NavigationLink";
 
 const Navigation = () => {
   return (
     <nav>
       <ul>
-        <li>
-          <Link to={"/"}>Home</Link>
-        </li>
-        <li>
-          <Link to={"create"}>Create Notes</Link>
-        </li>
-        <li>
-          <Link to={"notes"}>View Notes</Link>
-        </li>
-        <li>
-          <Link to={"courses"}>Create Courses</Link>
-        </li>
+        <NavigationLink link={"/"} label={"Etusivu"} />
+        <NavigationLink link={"create"} label={"Lisää muistiinpanoja"} />
+        <NavigationLink link={"notes"} label={"Muistiinpanot"} />
+        <NavigationLink link={"courses"} label={"Lisää kursseja"} />
       </ul>
     </nav>
   );

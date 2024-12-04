@@ -1,5 +1,12 @@
+import Title from "../components/Title";
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Title title={"NotesApp"} />
+      <p>Kaikkien muistiinpano-appien äiti</p>
+    </div>
+  );
 };
 
 export default Home;

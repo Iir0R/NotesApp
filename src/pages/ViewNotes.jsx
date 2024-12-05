@@ -37,7 +37,11 @@ const ViewNotes = () => {
   return (
     <div>
       <Title title={"Muistiinpanot"} />
-      <CourseDropdown option={option} setCurrent={setCurrent} />
+      <CourseDropdown
+        option={option}
+        setCurrent={setCurrent}
+        setCourseId={null}
+      />
       <ul>{listNotes}</ul>
     </div>
   );

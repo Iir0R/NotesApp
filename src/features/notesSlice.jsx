@@ -49,6 +49,10 @@ const notesSlice = createSlice({
   name: "notes",
   initialState,
   reducers: {
+    addNote(state, action) {
+      console.log(action.payload);
+      state.notes.push(action.payload);
+    },
     deleteNote(state, action) {
       const filteredNotes = state.notes.filter(
         (note) => note.id !== action.payload
@@ -62,6 +66,6 @@ export const selectNotes = (state) => state.notes.notes;
 export const getNotesStatus = (state) => state.notes.status;
 export const getNotesError = (state) => state.notes.error;
 
-export const { deleteNote } = notesSlice.actions;
+export const { addNote, deleteNote } = notesSlice.actions;
 
 export default notesSlice.reducer;

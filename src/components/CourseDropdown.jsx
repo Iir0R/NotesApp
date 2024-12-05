@@ -2,21 +2,22 @@ import { useSelector } from "react-redux";
 import { selectCourses } from "../features/coursesSlice";
 import CourseOption from "./CourseOption";
 
-const CourseDropdown = ({ option, setCurrent }) => {
+const CourseDropdown = ({ option, setCurrent, setCourseId, disabled }) => {
   const courses = useSelector(selectCourses);
 
   const listCourses = courses.map((course) => (
     <CourseOption
       key={course.id}
       course={course}
-      select={(e) => setCurrent(e.target.value)}
+      selectName={setCurrent}
+      selectId={setCourseId}
     />
   ));
 
   return (
     <div>
       <p>Kurssi:</p>
-      <select>
+      <select disabled={disabled}>
         {option}
         {listCourses}
       </select>

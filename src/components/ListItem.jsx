@@ -10,10 +10,10 @@ const ListItem = ({ note }) => {
   };
 
   return (
-    <li>
-      <Button onClick={() => handleDelete(note.id)} label={"x"} />
-      <div>
+    <li className="border-2 border-solid border-neutral-800 bg-white rounded-md p-2">
+      <div className="text-neutral-700 text-sm flex place-content-between">
         {note.timestamp} - {note.course.name}, id: {note.course.id}
+        <Button onClick={() => handleDelete(note.id)} label={"Poista"} />
       </div>
       <p>{note.text}</p>
     </li>

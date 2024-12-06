@@ -8,7 +8,7 @@ const Navigation = () => {
 
   return (
     <nav>
-      <ul>
+      <ul className="flex gap-6">
         <NavigationLink link={"/"} label={"Etusivu"} />
         <NavigationLink link={disabled} label={"Lisää muistiinpanoja"} />
         <NavigationLink link={"notes"} label={"Muistiinpanot"} />

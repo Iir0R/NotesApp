@@ -32,14 +32,14 @@ const ViewNotes = () => {
   let listNotes;
   if (current === "kaikki") {
     if (notes.length < 1) {
-      listNotes = <p>Ei muistiinpanoja!</p>;
+      listNotes = <p className="text-neutral-800">Ei muistiinpanoja!</p>;
     } else {
       listNotes = notes.map((note) => <ListItem key={note.id} note={note} />);
     }
   } else {
     const filteredNotes = notes.filter((note) => note.course.name === current);
     if (filteredNotes.length < 1) {
-      listNotes = <p>Ei muistiinpanoja!</p>;
+      listNotes = <p className="text-neutral-800">Ei muistiinpanoja!</p>;
     } else {
       listNotes = filteredNotes.map((note) => (
         <ListItem key={note.id} note={note} />
@@ -48,14 +48,16 @@ const ViewNotes = () => {
   }
 
   return (
-    <div>
+    <div className="flex flex-col place-items-center">
       <Title title={"Muistiinpanot"} />
-      <CourseDropdown
-        option={option}
-        setCurrent={setCurrent}
-        setCourseId={null}
-      />
-      <ul>{listNotes}</ul>
+      <div className="md:w-3/5 w-full">
+        <CourseDropdown
+          option={option}
+          setCurrent={setCurrent}
+          setCourseId={null}
+        />
+        <ul className="flex flex-col gap-2">{listNotes}</ul>
+      </div>
     </div>
   );
 };

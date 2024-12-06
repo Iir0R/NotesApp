@@ -2,8 +2,9 @@ import Button from "./Button";
 
 const AddCourse = ({ name, setName, handleAddCourse }) => {
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
+    <form className="flex flex-col" onSubmit={(e) => e.preventDefault()}>
       <input
+        className="p-2 border-2 border-solid rounded-md mb-4"
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}

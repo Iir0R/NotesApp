@@ -28,7 +28,14 @@ const CreateNotes = () => {
     }
   }, [status, dispatch]);
 
-  const listNotes = newNotes.map((note) => <li key={note.id}>{note.text}</li>);
+  const listNotes = newNotes.map((note) => (
+    <li
+      className="border-2 border-solid border-neutral-800 bg-white rounded-md p-2"
+      key={note.id}
+    >
+      {note.text}
+    </li>
+  ));
 
   const option = (
     <option value={""} onClick={(e) => setCurrent(e.target.value)}></option>
@@ -56,21 +63,25 @@ const CreateNotes = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col place-items-center">
       <Title title={"Lisää muistiinpanoja"} />
-      <CourseDropdown
-        option={option}
-        setCurrent={setCurrent}
-        setCourseId={setCourseId}
-        disabled={session}
-      />
-      <AddNote
-        text={text}
-        setText={setText}
-        handleAddNote={handleAddNote}
-        handleReset={handleReset}
-      />
-      {newNotes.length > 0 && <ul>{listNotes}</ul>}
+      <div className="md:w-3/5 w-full">
+        <CourseDropdown
+          option={option}
+          setCurrent={setCurrent}
+          setCourseId={setCourseId}
+          disabled={session}
+        />
+        <AddNote
+          text={text}
+          setText={setText}
+          handleAddNote={handleAddNote}
+          handleReset={handleReset}
+        />
+        {newNotes.length > 0 && (
+          <ul className="flex flex-col gap-2">{listNotes}</ul>
+        )}
+      </div>
     </div>
   );
 };

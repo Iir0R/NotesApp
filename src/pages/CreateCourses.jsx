@@ -21,18 +21,20 @@ const CreateCourses = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col place-items-center">
       <Title title={"Lisää kursseja"} />
-      <AddCourse
-        name={name}
-        setName={setName}
-        handleAddCourse={handleAddCourse}
-      />
-      {newCourse && (
-        <p>
-          Opintojakso '{newCourse.name}' lisätty id:llä {newCourse.id}
-        </p>
-      )}
+      <div className="md:w-3/5 w-full">
+        <AddCourse
+          name={name}
+          setName={setName}
+          handleAddCourse={handleAddCourse}
+        />
+        {newCourse && (
+          <p className="mt-4 border-2 border-solid border-neutral-800 rounded-md p-2 bg-white">
+            Opintojakso '{newCourse.name}' lisätty id:llä {newCourse.id}
+          </p>
+        )}
+      </div>
     </div>
   );
 };

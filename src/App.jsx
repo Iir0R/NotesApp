@@ -20,12 +20,12 @@ function App() {
   }, [status, dispatch]);
 
   return (
-    <>
-      <header>
+    <section className="h-screen bg-neutral-100">
+      <header className="flex place-content-between bg-neutral-800 text-neutral-100 p-4">
         <Link to={"/"}>NotesApp</Link>
         <Navigation />
       </header>
-      <main>
+      <main className="p-4">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="create" element={<CreateNotes />} />
@@ -33,7 +33,7 @@ function App() {
           <Route path="courses" element={<CreateCourses />} />
         </Routes>
       </main>
-    </>
+    </section>
   );
 }
 

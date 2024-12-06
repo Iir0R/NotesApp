@@ -15,9 +15,12 @@ const CourseDropdown = ({ option, setCurrent, setCourseId, disabled }) => {
   ));
 
   return (
-    <div>
-      <p>Kurssi:</p>
-      <select disabled={disabled}>
+    <div className="flex gap-2 mb-4">
+      <p className="text-neutral-800">Kurssi:</p>
+      <select
+        className="border-2 border-solid border-neutral-800 rounded-md p-1 bg-neutral-50"
+        disabled={disabled}
+      >
         {option}
         {listCourses}
       </select>

@@ -4,7 +4,9 @@ const Home = () => {
   return (
     <div>
       <Title title={"NotesApp"} />
-      <p>Kaikkien muistiinpano-appien äiti</p>
+      <p className="text-neutral-800 text-xl">
+        Kaikkien muistiinpano-appien äiti
+      </p>
     </div>
   );
 };

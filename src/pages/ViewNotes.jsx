@@ -1,14 +1,27 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CourseDropdown from "../components/CourseDropdown";
 import Title from "../components/Title";
-import { selectNotes } from "../features/notesSlice";
-import { useState } from "react";
+import {
+  fetchNotes,
+  getNotesStatus,
+  selectNotes,
+} from "../features/notesSlice";
+import { useEffect, useState } from "react";
 import ListItem from "../components/ListItem";
 
 const ViewNotes = () => {
   const [current, setCurrent] = useState("kaikki");
 
+  const dispatch = useDispatch();
+
   const notes = useSelector(selectNotes);
+  const status = useSelector(getNotesStatus);
+
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchNotes());
+    }
+  }, [status, dispatch]);
 
   const option = (
     <option value={"kaikki"} onClick={(e) => setCurrent(e.target.value)}>

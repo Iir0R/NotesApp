@@ -1,46 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-const NOTES_URL = "";
+const NOTES_URL =
+  "https://luentomuistiinpano-api.netlify.app/.netlify/functions/notes";
+
+export const fetchNotes = createAsyncThunk("notes/fetchNotes", async () => {
+  try {
+    const response = await axios.get(NOTES_URL);
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 const initialState = {
-  notes: [
-    {
-      id: 0,
-      text: "add lisää",
-      course: {
-        id: 0,
-        name: "versionhallinta",
-      },
-      timestamp: "2022-10-23 13:13:13",
-    },
-    {
-      id: 1,
-      text: "commit tallenta",
-      course: {
-        id: 0,
-        name: "versionhallinta",
-      },
-      timestamp: "2022-10-23 13:33:47",
-    },
-    {
-      id: 2,
-      text: "push työntää muutokset remoteen",
-      course: {
-        id: 0,
-        name: "versionhallinta",
-      },
-      timestamp: "2022-10-24 13:53:18",
-    },
-    {
-      id: 3,
-      text: "talar du svenska",
-      course: {
-        id: 2,
-        name: "ruotsi",
-      },
-      timestamp: "2022-11-01 08:23:12",
-    },
-  ],
+  notes: [],
   status: "idle",
   error: null,
 };
@@ -50,7 +24,6 @@ const notesSlice = createSlice({
   initialState,
   reducers: {
     addNote(state, action) {
-      console.log(action.payload);
       state.notes.push(action.payload);
     },
     deleteNote(state, action) {
@@ -59,6 +32,12 @@ const notesSlice = createSlice({
       );
       state.notes = filteredNotes;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchNotes.fulfilled, (state, action) => {
+      state.status = "succeeded";
+      state.notes = action.payload;
+    });
   },
 });
 

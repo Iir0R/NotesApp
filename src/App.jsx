@@ -4,8 +4,21 @@ import CreateNotes from "./pages/CreateNotes";
 import ViewNotes from "./pages/ViewNotes";
 import CreateCourses from "./pages/CreateCourses";
 import Navigation from "./components/Navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchCourses, getCoursesStatus } from "./features/coursesSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  const status = useSelector(getCoursesStatus);
+
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchCourses());
+    }
+  }, [status, dispatch]);
+
   return (
     <>
       <header>

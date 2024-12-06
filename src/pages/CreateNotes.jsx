@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddNote from "../components/AddNote";
 import CourseDropdown from "../components/CourseDropdown";
 import Title from "../components/Title";
 import { useDispatch, useSelector } from "react-redux";
-import { addNote, selectNotes } from "../features/notesSlice";
+import {
+  addNote,
+  fetchNotes,
+  getNotesStatus,
+  selectNotes,
+} from "../features/notesSlice";
 
 const CreateNotes = () => {
   const [current, setCurrent] = useState("");
@@ -15,6 +20,13 @@ const CreateNotes = () => {
   const dispatch = useDispatch();
 
   const notes = useSelector(selectNotes);
+  const status = useSelector(getNotesStatus);
+
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchNotes());
+    }
+  }, [status, dispatch]);
 
   const listNotes = newNotes.map((note) => <li key={note.id}>{note.text}</li>);
 
@@ -23,7 +35,7 @@ const CreateNotes = () => {
   );
 
   const handleAddNote = () => {
-    if (current === "") return null;
+    if (current === "" || text === "") return null;
     if (session === false) setSession(true);
     let id = notes[notes.length - 1].id + 1;
     let timestamp = new Date().toJSON().slice(0, 10);

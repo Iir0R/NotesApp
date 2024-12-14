@@ -3,11 +3,11 @@ NotesApp, ohjeet ja toiminnot
 ---
 
 VAADITTAVAT:
-"@reduxjs/toolkit": "^2.4.0",
-"axios": "^1.7.8",
-"react": "^18.3.1",
-"react-dom": "^18.3.1",
-"react-redux": "^9.1.2",
+"@reduxjs/toolkit": "^2.4.0"
+"axios": "^1.7.8"
+"react": "^18.3.1"
+"react-dom": "^18.3.1"
+"react-redux": "^9.1.2"
 "react-router-dom": "^7.0.2"
 
 Tyyleissä käytetty TailwindCSS:ää

@@ -41,11 +41,27 @@ const CreateNotes = () => {
     <option value={""} onClick={(e) => setCurrent(e.target.value)}></option>
   );
 
+  const getTimestamp = () => {
+    const formatTime = (number) => {
+      return number < 10 ? "0" + number : number;
+    };
+
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let hours = formatTime(date.getHours());
+    let minutes = formatTime(date.getMinutes());
+    let seconds = formatTime(date.getSeconds());
+    let newDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    return newDate;
+  };
+
   const handleAddNote = () => {
     if (current === "" || text === "") return null;
     if (session === false) setSession(true);
     let id = notes[notes.length - 1].id + 1;
-    let timestamp = new Date().toJSON().slice(0, 10);
+    let timestamp = getTimestamp();
     let newNote = {
       id,
       text,

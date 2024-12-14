@@ -23,18 +23,18 @@ TOIMINNOT:
 Navigointi onnistuu yläosan linkeistä
 
 Muistiinpanojen lisääminen:
--Valittuna kurssi ja mp:n pituus > 0
+Valittuna kurssi ja mp:n pituus > 0.
 
 Muistiinpanojen listaaminen:
--Alasvetovalikosta valitaan kurssi, jonka muistiinpanot halutaan nähdä
--Yksittäisen kurssin poistaminen onnistuu "poista" painikkeesta
+Alasvetovalikosta valitaan kurssi, jonka muistiinpanot halutaan nähdä.
+Yksittäisen kurssin poistaminen onnistuu "poista" painikkeesta.
 
 Kurssien lisääminen:
--Lisätään antamalla kursin nimi ja painamalla "Lisää kurssi" painiketta
--Uuden kurssin nimen pituus > 0
--Mp:n lisääminen lukitsee kurssin, uusi sessio painikkeesta "Uusi sessio" tai poistumalla ja palaamalla sivulle
+Lisätään antamalla kursin nimi ja painamalla "Lisää kurssi" painiketta.
+Uuden kurssin nimen pituus > 0.
+Mp:n lisääminen lukitsee kurssin, uusi sessio painikkeesta "Uusi sessio" tai poistumalla ja palaamalla sivulle.
 
 ---
 
-Muistiinpanot ja kurssit haetaan APIsta
-Uudet muistiinpanot ja kurssit tallennetaan Redux Toolkit sliceihin
+Muistiinpanot ja kurssit haetaan APIsta.
+Uudet muistiinpanot ja kurssit tallennetaan Redux Toolkit sliceihin.

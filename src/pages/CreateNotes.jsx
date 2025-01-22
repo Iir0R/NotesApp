@@ -3,16 +3,11 @@ import AddNote from "../components/AddNote";
 import CourseDropdown from "../components/CourseDropdown";
 import Title from "../components/Title";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addNote,
-  fetchNotes,
-  getNotesStatus,
-  selectNotes,
-} from "../features/notesSlice";
+import { addNote, fetchNotes, getNotesStatus, selectNotes, } from "../features/notesSlice";
+import { selectCourses } from "../features/coursesSlice";
 
 const CreateNotes = () => {
   const [current, setCurrent] = useState("");
-  const [courseId, setCourseId] = useState("");
   const [newNotes, setNewNotes] = useState([]);
   const [text, setText] = useState("");
   const [session, setSession] = useState(false);
@@ -21,6 +16,7 @@ const CreateNotes = () => {
 
   const notes = useSelector(selectNotes);
   const status = useSelector(getNotesStatus);
+  const courses = useSelector(selectCourses)
 
   useEffect(() => {
     if (status === "idle") {
@@ -57,10 +53,16 @@ const CreateNotes = () => {
     return newDate;
   };
 
+  const getCourseId = () => {
+    let courseId = courses.find((course) => course.name === current);
+    return courseId.id;
+  };
+
   const handleAddNote = () => {
-    if (current === "" || text === "") return null;
-    if (session === false) setSession(true);
+    if (!current || !text) return;
+    if (!session) setSession(true);
     let id = notes[notes.length - 1].id + 1;
+    let courseId = getCourseId()
     let timestamp = getTimestamp();
     let newNote = {
       id,
@@ -84,8 +86,8 @@ const CreateNotes = () => {
       <div className="md:w-3/5 w-full">
         <CourseDropdown
           option={option}
+          current={current}
           setCurrent={setCurrent}
-          setCourseId={setCourseId}
           disabled={session}
         />
         <AddNote

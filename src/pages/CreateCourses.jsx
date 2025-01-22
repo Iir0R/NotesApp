@@ -13,7 +13,7 @@ const CreateCourses = () => {
   const courses = useSelector(selectCourses);
 
   const handleAddCourse = () => {
-    if (name === "") return;
+    if (!name) return;
     let id = courses[courses.length - 1].id + 1;
     let course = { id, name };
     setNewCourse(course);

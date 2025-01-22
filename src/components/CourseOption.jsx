@@ -1,12 +1,6 @@
-const CourseOption = ({ course, selectName, selectId }) => {
-  const handleSetValues = (e) => {
-    selectName(e.target.value);
-    if (selectId === null) return;
-    selectId(course.id);
-  };
-
+const CourseOption = ({ course }) => {
   return (
-    <option value={course.name} onClick={handleSetValues}>
+    <option value={course.name}>
       {course.name}
     </option>
   );

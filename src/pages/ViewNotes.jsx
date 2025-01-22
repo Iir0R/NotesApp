@@ -1,11 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import CourseDropdown from "../components/CourseDropdown";
 import Title from "../components/Title";
-import {
-  fetchNotes,
-  getNotesStatus,
-  selectNotes,
-} from "../features/notesSlice";
+import {fetchNotes, getNotesStatus, selectNotes,} from "../features/notesSlice";
 import { useEffect, useState } from "react";
 import ListItem from "../components/ListItem";
 
